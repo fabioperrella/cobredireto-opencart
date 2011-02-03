@@ -824,5 +824,5 @@ system/library/tax.php
 system/library/template.php
 system/library/user.php
 system/library/weight.php
-system/logs/index.html
+system/logs/
 system/startup.php
