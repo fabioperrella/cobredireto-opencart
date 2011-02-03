@@ -186,7 +186,7 @@ class ControllerPaymentCobredireto extends Controller
 
         $this->order->initCobreDireto('probe');
 
-        self::capturar($merch,(string) $this->order->xml->order_data->order->bpag_data->status, array(
+        self::capturar($this->order->merch_ref,(string) $this->order->xml->order_data->order->bpag_data->status, array(
                     'url' => (string) $this->order->xml->order_data->order->bpag_data->url, 
                     'cobredireto_id' => (string) $this->order->xml->order_data->order->bpag_data->id,
                     ));
