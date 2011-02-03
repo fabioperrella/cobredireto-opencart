@@ -627,4 +627,74 @@
       $bell->appendChild($payOrder);
       echo $bell->saveXML();
     }
+
+    /**
+      * Método para montar o Probe para o CobreDireto
+      *
+      * Monta a estrtura XML para o Probe e solicita o WebService
+      * caso tenha a função capturar, já solicita a mesma
+      *
+      **/
+    public function probe(){
+      $soapProbe =  $this->request->createElement('probe');
+      
+      $merch  = $this->request->createElement('merch_ref',$this->merch_ref);
+      $id     = $this->request->createElement('id', $this->id);
+      
+      $soapProbe->appendChild($merch);
+      $soapProbe->appendChild($id);
+      
+      $this->request->appendChild($soapProbe);
+      parent::initCobreDireto('probe');
+      if (function_exists('capturar')){
+         capturar($this->merch_ref,(string) $this->xml->order_data->order->bpag_data->status, array(
+          'url' => (string) $this->xml->order_data->order->bpag_data->url, 
+          'msg' => $this->msg, 
+          'cobredireto_id' => (string) $this->xml->order_data->order->bpag_data->id,
+         ));
+      }
+    }
+
+    /**
+      * Método mágico de GET
+      *
+      * Na alteração necessário no OpenCart, é necessário as duas váriaveis:
+      * - merch_ref
+      * - id
+      *
+      * @param string O nome da variavel necessária
+      */
+    public function __get ($attr) { 
+        if (in_array($attr, array('merch_ref','id', 'xml')))
+            return $this->$attr;
+    }
+
+    /**
+      * Método mágico de SET
+      *
+      * A alteração do OpenCart necessita alterar o request
+      *
+      * @param string O nome da variável
+      * @param mixed Valor da variável
+      */
+    public function __set($attr, $value) { 
+        if ($attr == 'request')
+            $this->request = $value;
+    }
+    
+    /**
+      * Método mágico de CALL
+      *
+      * A alteração no OpenCart precisa que o método
+      * 'initCobreDireto' seje chamado externamente
+      * com isso, é verificado se é esse método, senão,
+      * é tratado como um método comum.
+      *
+      * @param string O nome do método
+      * @param array array de valores passados para o método
+      */
+    public function __call($method, $params) {
+        if ($method == 'initCobreDireto')
+            parent::initCobreDireto($params[0]);
+    }
   }
