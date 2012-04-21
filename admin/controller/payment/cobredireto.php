@@ -55,9 +55,7 @@ class ControllerPaymentCobredireto extends Controller {
                 'text_enabled', 'text_disabled', 'button_cancel',
                 'text_teste', 'text_producao', 'text_pac', 'text_sedex',
                 'button_save', 'lb_codloja', 'lb_usuario', 'lb_senha',
-                'lb_ambiente', 'instructions_title', 'instructions_info',
-                'lb_url_recibo', 'lb_url_erro', 'lb_url_retorno', 'lb_frete',
-                'lb_tipo_frete', 'lb_status'
+                'lb_ambiente', 'instructions_title', 'instructions_info','lb_status'
         );
         
         foreach ($langs as $item) {
@@ -66,9 +64,7 @@ class ControllerPaymentCobredireto extends Controller {
 
         $campos_submetidos=array(
             'codloja', 'usuario', 'senha', 
-            'ambiente', 'url_recibo', 'url_erro',
-            'url_retorno', 'frete', 'tipo_frete',
-            'status'
+            'ambiente', 'status'
         );
         foreach ($campos_submetidos as $item) {
             if (isset($this->request->post['cobredireto_'.$item])) {

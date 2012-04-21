@@ -27,7 +27,7 @@ $_['error_permission']   = 'Você não ter permissões suficientes para editar e
 
 // Labels
 $_['lb_codloja']         = 'Código da loja junto ao CobreDireto';
-$_['lb_ambiente']        = 'Ambiênte';
+$_['lb_ambiente']        = 'Ambiente';
 $_['lb_usuario']         = 'Login do CobreDireto';
 $_['lb_senha']           = 'Senha do CobreDireto';
 $_['lb_url_recibo']      = 'URL do Recibo';

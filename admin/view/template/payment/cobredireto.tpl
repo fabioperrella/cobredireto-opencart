@@ -68,47 +68,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="25%">
-                        <?php echo $lb_url_recibo; ?>
-                    </td>
-                    <td>
-                        <input type="text" name="cobredireto_url_recibo" value="<?php echo $cobredireto_url_recibo; ?>" size="50" />
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25%">
-                        <?php echo $lb_url_erro; ?>
-                    </td>
-                    <td>
-                        <input type="text" name="cobredireto_url_erro" value="<?php echo $cobredireto_url_erro; ?>" size="50" />
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25%">
-                        <?php echo $lb_url_retorno; ?>
-                    </td>
-                    <td>
-                        <input type="text" name="cobredireto_url_retorno" value="<?php echo $cobredireto_url_retorno; ?>" size="50" />
-                    </td>
-                </tr>
-                <tr>
-                    <td width="25%">
-                        <?php echo $lb_frete; ?>
-                    </td>
-                    <td>
-                        <input type="text" name="cobredireto_frete" value="<?php echo $cobredireto_frete; ?>" />
-                    </td>
-                </tr>
-                <tr>
-                    <td><?php echo $lb_tipo_frete; ?></td>
-                    <td>
-                        <select name="cobredireto_tipo_frete">
-                            <option value="EN" selected="selected"><?php echo $text_pac; ?></option>
-                            <option value="SD"><?php echo $text_sedex; ?></option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
                     <td><?php echo $lb_status; ?></td>
                     <td>
                         <select name="cobredireto_status">
