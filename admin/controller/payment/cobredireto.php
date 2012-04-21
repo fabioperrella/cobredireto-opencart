@@ -18,7 +18,7 @@ class ControllerPaymentCobredireto extends Controller {
 
         $this->load->language('payment/cobredireto');
 
-        $this->document->title = $this->language->get('heading_title');
+        $this->document->setTitle($this->language->get('heading_title'));
 
         $this->load->model('setting/setting');
 
@@ -57,13 +57,13 @@ class ControllerPaymentCobredireto extends Controller {
                 'button_save', 'lb_codloja', 'lb_usuario', 'lb_senha',
                 'lb_ambiente', 'instructions_title', 'instructions_info','lb_status'
         );
-        
+
         foreach ($langs as $item) {
             $this->data[$item] = $this->language->get($item);
         }
 
         $campos_submetidos=array(
-            'codloja', 'usuario', 'senha', 
+            'codloja', 'usuario', 'senha',
             'ambiente', 'status'
         );
         foreach ($campos_submetidos as $item) {
